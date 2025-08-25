@@ -19,7 +19,7 @@ app.get("*", async (c) => {
   const template = await indexRes.text();
 
   // ← ここがポイント：相対 import（tsserver 2307 を回避）
-  const { render } = await import("../../src/entry-server");
+  const { render } = await import("../src/entry-server");
   const { appHtml, head = "" } = await render(url.pathname);
 
   const html = template
